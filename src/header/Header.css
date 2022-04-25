@@ -1,0 +1,30 @@
+.header {
+    margin: 0;
+    position: relative;
+}
+
+.header-titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Lora', serif;
+    color: #fff;
+}
+
+.logo-image {
+    position: absolute;
+    top: 5%;
+}
+
+.header-title-large {
+    position: absolute;
+    top: 18%;
+    font-size: 100px;
+}
+
+.hero-image {
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+}
+

@@ -6,7 +6,8 @@
     top: 0;
     display: flex;
     align-items: center;
-    background-color: aqua;
+    background-color: #444;
+    z-index: ;
 }
 
 .top-left, .top-right {
@@ -23,7 +24,7 @@
 .top-icon {
     font-size: 20px;
     margin-right: 10px;
-    color: #444;
+    color: #fff;
     cursor: pointer;
 }
 
@@ -46,13 +47,18 @@
 .menu-list-item {
     margin-right: 20px;
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 400;
+    color: #fff;
     cursor: pointer;
+}
+
+.menu-list-item:hover {
+    color: aqua;
 }
 
 .top-search {
     font-size: 18px;
-    color: #666;
+    color: #efefef;
     cursor: pointer;
     margin-left: 15px;
 }
