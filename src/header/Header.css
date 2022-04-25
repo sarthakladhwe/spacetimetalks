@@ -11,14 +11,22 @@
     color: #fff;
 }
 
-.logo-image {
+/* .logo-image {
     position: absolute;
     top: 5%;
+} */
+
+.header-title-small {
+    position: absolute;
+    top: 5%;
+    font-size: 50px;
+    padding: 5px;
+    border: 2px solid #fff;
 }
 
 .header-title-large {
     position: absolute;
-    top: 18%;
+    top: 16%;
     font-size: 100px;
 }
 
