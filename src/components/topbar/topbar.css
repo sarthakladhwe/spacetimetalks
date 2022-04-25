@@ -6,7 +6,8 @@
     top: 0;
     display: flex;
     align-items: center;
-    background-color: #212329;
+    background-color: #4A5667;
+    border-bottom: 2px solid rgba(33, 35, 41, 0.5);
     z-index: 10;
 }
 

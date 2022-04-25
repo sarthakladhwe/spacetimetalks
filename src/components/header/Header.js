@@ -1,6 +1,6 @@
 import React from 'react'
 import './header.css'
-import heroImage from '../assets/SpaceTimeTalks-Hero.jpg'
+import heroImage from '../../assets/SpaceTimeTalks-Hero.jpg'
 
 export default function Header() {
   return (
