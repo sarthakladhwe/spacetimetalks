@@ -6,7 +6,7 @@ export default function Sidebar() {
     <div className='sidebar'>
         <div className='sidebar-item'>
             <span className='sidebar-title'>ABOUT ME</span>
-            <img src='https://www.pexels.com/photo/blue-and-white-planet-display-87009/' alt='' />
+            {/* <img src='https://www.pexels.com/photo/blue-and-white-planet-display-87009/' alt='' /> */}
             <p>
                 Lorem sasfasfafssss
                 asfasfasf

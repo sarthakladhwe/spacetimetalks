@@ -1,3 +1,67 @@
 .sidebar {
     flex: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding: 30px 0;
+    background-color: #212329;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.sidebar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar-title {
+    margin: 10px;
+    padding: 5px;
+    width: 80%;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+}
+
+.sidebar-item > img {
+    margin-top: 15px;
+}
+
+.sidebar-item > p {
+    padding: 30px;
+}
+
+.sidebar-list {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.sidebar-list-item {
+    display: inline-block;
+    width: 50%;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.sidebr-social {
+    margin-top: 15px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-icon {
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.sidebar-icon:hover {
+    color: aqua;
 }
