@@ -1,0 +1,55 @@
+.login {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.05)
+    ), url("https://images.pexels.com/photos/1257860/pexels-photo-1257860.jpeg?cs=srgb&dl=pexels-philippe-donn-1257860.jpg&fm=jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.login-title {
+    font-size: 50px;
+    color: #fff;
+}
+
+.login-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form > label {
+    margin: 10px 0;
+    color: #fff;
+}
+
+.login-input {
+    padding: 10px;
+    background-color: #fff;
+    border: none;
+}
+
+.login-button {
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: teal;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.login-register {
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: teal;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+}

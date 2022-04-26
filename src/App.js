@@ -1,12 +1,12 @@
 import Topbar from "./components/topbar/Topbar";
-import Settings from "./pages/Settings/Settings";
+import Login from "./pages/Login/Login";
 
 
 function App() {
   return (
     <div className="App">
-      <Topbar />
-      <Settings />
+      {/* <Topbar /> */}
+      <Login />
     </div>
   );
 }
