@@ -7,7 +7,7 @@ const PostSchema = new mongoose.Schema({
         unique: true
     },
     description: {
-        type: File,
+        type: String,
         required: true
     },
     image: {
