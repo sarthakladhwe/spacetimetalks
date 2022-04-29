@@ -9,12 +9,12 @@ import Register from "./pages/Register/Register";
 import { Routes, Route} from "react-router-dom";
 
 function App() {
-  const user = true
+  const user = false
   return (
     <div className="App">
       <Topbar />
       <Routes>
-        <Route path="/" element={<Home />}/>
+        <Route path="/" element={<Home />}/> 
         <Route path="/write" element={user ? <Write /> : <Register />} />
         <Route path="/settings" element={user ? <Settings /> : <Register />} />
         <Route path="/post/:postId" element={<Single />} />
