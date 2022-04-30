@@ -7,7 +7,6 @@ const Post = require("../models/Post");
 // CREATE POST
 router.post("/", async (req, res) => {
     const newPost = new Post(req.body);
-
     try {
         const savedPost = await newPost.save();
         res.status(201).json(savedPost); 
@@ -44,7 +43,7 @@ router.delete("/:id", async (req, res) => {
         const post = await Post.findById(req.params.id)
         if(post.username === req.body.username) {
             try {
-                await Post.findByIdAndDelete(req.params.id);
+                await post.delete();
                 res.status(200).json(`Post '${post.title}' has been deleted.`);
             } catch(err) {
                 res.status(500).json(err)
@@ -60,9 +59,30 @@ router.delete("/:id", async (req, res) => {
 // GET POST
 router.get("/:id", async (req, res) => {
     try {
-        const user = await User.findById(req.params.id);
-        const {password, ...others} = user._doc;
-        res.status(200).json(others);
+        const post = await Post.findById(req.params.id);
+        res.status(200).json(post);
+    } catch(err) {
+        res.status(500).json(err)
+    }
+})
+
+// GET ALL POSTS
+router.get("/", async (req, res) => {
+    const username = req.query.user;
+    const category = req.query.cat;
+    try {
+        let posts;
+        if(username) {
+            posts = await Post.find({username})
+        } else if(category) {
+            posts = await Post.find({categories: {
+                $in:[category]
+            }})
+        } else {
+            posts = await Post.find();
+        }
+
+        res.status(200).json(posts)
     } catch(err) {
         res.status(500).json(err)
     }
