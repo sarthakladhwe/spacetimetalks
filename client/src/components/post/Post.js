@@ -1,7 +1,16 @@
 import React from 'react'
 import './post.css'
+import { Link } from 'react-router-dom'
 
-export default function post() {
+export default function post({ post }) {
+
+  const timeStamp = new Date(post.createdAt).toDateString();
+  const categories = post.categories.map(cat => (
+    <span className='post-category'>
+        {cat}
+    </span>
+  ))
+
   return (
     <div className='post'>
         <img 
@@ -11,23 +20,18 @@ export default function post() {
         />
         <div className='post-info'>
             <div className='post-categories'>
-                <span className='post-category'>
-                    Hubble Top 100
-                </span>
-                <span className='post-category'>
-                    Sound of Space
-                </span>
+                {categories}
             </div>
-            <span className='post-title'>
-                Loremmmm ispsps
-            </span>
+            <Link className="link" to={`/post/${post._id}`}>
+                <span className='post-title'>
+                    {post.title}
+                </span>
+            </Link>
             <hr/>
-            <span className='post-date'>1 hour ago</span>
+            <span className='post-date'>{timeStamp}</span>
         </div>
         <p className='post-description'>
-            Lorem in id incididunt et anim dolore deserunt sit nisi laboris cupidatat sit. Enim veniam sint consectetur excepteur exercitation in reprehenderit irure deserunt deserunt aliquip aliqua. Exercitation laboris incididunt do minim esse id aliqua ea. Laborum veniam aliquip proident ea eiusmod nulla minim do aliquip voluptate aute.
-            Lorem in id incididunt et anim dolore deserunt sit nisi laboris cupidatat sit. Enim veniam sint consectetur excepteur exercitation in reprehenderit irure deserunt deserunt aliquip aliqua. Exercitation laboris incididunt do minim esse id aliqua ea. Laborum veniam aliquip proident ea eiusmod nulla minim do aliquip voluptate aute.
-            Lorem in id incididunt et anim dolore deserunt sit nisi laboris cupidatat sit. Enim veniam sint consectetur excepteur exercitation in reprehenderit irure deserunt deserunt aliquip aliqua. Exercitation laboris incididunt do minim esse id aliqua ea. Laborum veniam aliquip proident ea eiusmod nulla minim do aliquip voluptate aute.
+            {post.description}
         </p>
     </div>
   )
