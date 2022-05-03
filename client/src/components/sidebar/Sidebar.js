@@ -9,7 +9,7 @@ export default function Sidebar() {
     useEffect(() => {
         const getCategories = async() => {
             const allCategories = await axios.get("/categories")
-            setCategories(allCategories.data)
+            setCategories(allCategories.data) 
         }
         getCategories()
     }, [])
@@ -27,6 +27,10 @@ export default function Sidebar() {
                 Lorem sasfasfafssss
                 asfasfasf
                 asfasfasfasf
+                aggddfh
+                sdhsdgj
+                sdjfsdf
+                sdgj
             </p>
         </div>
         <div className='sidebar-item'>
