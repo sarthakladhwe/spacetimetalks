@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './register.css'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 export default function Register() {
 
@@ -9,6 +10,7 @@ export default function Register() {
     email: "",
     password: ""
   });
+  const [error, setError] = useState(false)
 
   function userOnChange(event) {
     setUser(prevUser => (
@@ -21,10 +23,26 @@ export default function Register() {
 
   console.log(user);
 
+  async function registerUser(event) {
+    event.preventDefault();
+    setError(false)
+    try {
+      const res = await axios.post("/auth/register", {
+        username: user.username,
+        email: user.email,
+        password: user.password
+      });
+      res.data && window.location.replace("/login");
+    } catch(err) {
+      console.log(err);
+      setError(true)
+    }
+  }
+
   return (
     <div className='register'>
         <span className='register-title'>Register</span>
-        <form className='register-form'>
+        <form className='register-form' onSubmit={registerUser}>
             <label>Username</label>
             <input 
               type="text" 
@@ -52,17 +70,19 @@ export default function Register() {
               className='register-input' 
               placeholder='Enter Password' 
             />
-            <button className='register-register'>
-              <Link className='link' to="/register">
+            <button className='register-register' type='submit'>
                 Register
-              </Link>
             </button> 
-            <button className='login-button'>
-              <Link className='link' to="/login">
-                I'll login
-              </Link>
-            </button>
         </form>
+        <button className='login-button'>
+          <Link className='link' to="/login">
+            I'll login
+          </Link>
+        </button>
+        {
+          error &&
+          <span style={{color: "red", marginTop: "10px"}}>Something went wrong!</span>
+        }
     </div>
   )
 }
