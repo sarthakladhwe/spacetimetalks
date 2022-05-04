@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import axios from 'axios';
 import './singlePost.css'
 import post from '../post/Post';
@@ -33,7 +33,12 @@ export default function SinglePost() {
                 <i className="single-post-icon fa-regular fa-trash-can"></i>
             </div>
             <div className='single-post-info'>
-                <span className='single-post-author'>Author: <b>{singlePost.username}</b></span>
+                <span className='single-post-author'>
+                    Author:   
+                    <Link to={`/?user=${singlePost.username}`} className="link">
+                        <b>{singlePost.username}</b>
+                    </Link>
+                </span>
                 <span className='single-post-date'>{timeStamp}</span>
             </div>
             <p className='single-post-description'>

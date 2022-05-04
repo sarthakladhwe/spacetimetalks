@@ -26,11 +26,6 @@ export default function Sidebar() {
             <p>
                 Lorem sasfasfafssss
                 asfasfasf
-                asfasfasfasf
-                aggddfh
-                sdhsdgj
-                sdjfsdf
-                sdgj
             </p>
         </div>
         <div className='sidebar-item'>
