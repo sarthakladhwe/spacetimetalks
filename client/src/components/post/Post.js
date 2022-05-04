@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom'
 export default function post({ post }) {
 
   const timeStamp = new Date(post.createdAt).toDateString();
-  const categories = post.categories.map(cat => (
+  const postCategories = post.categories.map(cat => (
     <span className='post-category'>
-        {cat}
+        <Link className='link' to={`/?cat=${cat}`}>
+            {cat}
+        </Link>
     </span>
   ))
 
@@ -20,7 +22,7 @@ export default function post({ post }) {
         />
         <div className='post-info'>
             <div className='post-categories'>
-                {categories}
+                {postCategories}
             </div>
             <Link className="link" to={`/post/${post._id}`}>
                 <span className='post-title'>
