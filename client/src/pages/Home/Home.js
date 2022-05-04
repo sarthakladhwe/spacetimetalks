@@ -24,8 +24,8 @@ export default function Home() {
     <div className='home'>
         <Header />
         <div className='home-container'>
-          <Posts posts={posts} />
-          <Sidebar />
+          <Posts key={1} posts={posts} />
+          <Sidebar key={2} />
         </div>
     </div>
   )

@@ -5,7 +5,7 @@ import Post from '../post/Post'
 export default function Posts({ posts }) {
 
   const allPosts = posts.map(post => (
-    <Post post={post} />
+    <Post key={post._id} post={post} />
   ))
 
   return (
