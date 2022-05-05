@@ -18,14 +18,14 @@ export default function Home() {
       setPosts(res.data);
     }
     fetchPosts();
-  }, [search]) 
+  }, [search])
 
   return (
     <div className='home'>
         <Header />
         <div className='home-container'>
-          <Posts key={1} posts={posts} />
-          <Sidebar key={2} />
+          <Posts posts={posts} />
+          <Sidebar />
         </div>
     </div>
   )

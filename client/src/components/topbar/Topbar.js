@@ -1,10 +1,13 @@
 import React from 'react'
 import './topbar.css'
+import { Context } from '../../context/Context';
 
 import { Link } from 'react-router-dom'
 
 export default function Topbar() {
-    const user = false;
+
+  const {userDetails, logoutUser, isLoggedIn} = React.useContext(Context);
+    
   return (
     <div className='topbar'>
         <div className='top-left'>
@@ -27,16 +30,24 @@ export default function Topbar() {
                     <li className='menu-list-item'>CONTACT</li>
                 </Link>
                 {
-                    user &&
-                    <li className='menu-list-item'>LOGOUT</li>
+                    isLoggedIn &&
+                    <li className='menu-list-item' onClick={logoutUser}>LOGOUT</li>
                 }    
             </ul>
         </div>
         <div className='top-right'>
             {
-                user ? (
+                isLoggedIn ? (
                     <Link className='link' to="/settings">
-                        <img src='https://media-exp1.licdn.com/dms/image/C4D03AQEk3saQzwZMEw/profile-displayphoto-shrink_800_800/0/1583911954522?e=1656547200&v=beta&t=eumbJSoMV76Bx3RFd5EC7PBCuHJQGGjp7zM1zzJqv3U' className='profile-image' alt='' />
+                        {
+                            userDetails.profilePicture ?
+                            <img 
+                                src={userDetails.profilePicture} 
+                                className='profile-image' 
+                                alt='' 
+                            /> :
+                            <i className="top-icon fa-solid fa-user-astronaut"></i>
+                        }
                     </Link>
                 ) : (
                     <ul className='menu-list'>

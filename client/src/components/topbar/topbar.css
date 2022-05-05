@@ -40,6 +40,10 @@
     object-fit: cover;
 }
 
+.fa-user-astronaut {
+    font-size: 30px;
+}
+
 .menu-list {
     display: flex;
     justify-content: center;

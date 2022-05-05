@@ -1,8 +1,12 @@
 import React from 'react'
 import './settings.css'
 import Sidebar from '../../components/sidebar/Sidebar'
+import { Context } from '../../context/Context'
 
 export default function Settings() {
+
+  const {userDetails, logoutUser, isLoggedIn} = React.useContext(Context);
+
   return (
     <div className='settings'>
         <div className='settings-wrapper'>

@@ -8,12 +8,12 @@ import { ContextProvider } from './context/Context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ContextProvider>
-    <React.StrictMode>
-      <Router>
-        <App />
-      </Router>
-    </React.StrictMode>
-  </ContextProvider>
+  <React.StrictMode>
+    <ContextProvider>
+    <Router>
+      <App />
+    </Router>
+    </ContextProvider>
+  </React.StrictMode>
 );
 

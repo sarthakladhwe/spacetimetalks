@@ -26,9 +26,6 @@ export default function Login() {
     loginWithDetails(userLoginDetails);
   }
 
-  console.log("Login user details ",userDetails)
-  console.log("Login user error ",error)
-
   return (
     <div className='login'>
         <span className='login-title'>Login</span>

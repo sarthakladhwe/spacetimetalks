@@ -21,8 +21,6 @@ export default function Register() {
     ))
   }
 
-  console.log(user);
-
   async function registerUser(event) {
     event.preventDefault();
     setError(false)
