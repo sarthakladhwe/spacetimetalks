@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export default function post({ post }) {
 
   const timeStamp = new Date(post.createdAt).toDateString();
-  const publicFolder = "localhost:5000/images/"
+  const publicFolder = "http://localhost:5000/images/"
   const postCategories = post.categories.map(cat => (
     <span className='post-category'>
         <Link className='link' to={`/?cat=${cat}`}>

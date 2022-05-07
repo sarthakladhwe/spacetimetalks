@@ -21,36 +21,37 @@ export default function Write() {
         setWriteDetails(prevDetails => (
             {
                 ...prevDetails,
-                [e.target.name]: e.target.type === "file" ? Date.now() + e.target.value.name : e.target.value
+                [e.target.name]: e.target.name === "image" ? 
+                                    Date.now() + e.target.files[0].name : 
+                                    e.target.value
             }
         ))
     }
 
+    function onFileChange(e) {
+        setFile(e.target.files[0]);
+        handleWriteChange(e);
+    }
+
     async function onWriteSubmit(e) {
         e.preventDefault();
-        if(writeDetails.image) {
+        if(file) {
             const data = new FormData();
-            //const filename = Date.now() + file.name;
-            console.log(filename);
-            data.append("name",filename)
-            data.append("file",file)
-            console.log(writeDetails)
+            data.append("name",writeDetails.image)
+            data.append("file",file) 
             try {
                 await axios.post("/upload", data);
             } catch(err) {
                 console.log("File upload failed: ",err);
-            }
+            }   
         }
         try {
-            console.log("Write post: ", writeDetails);
             const res = await axios.post("/posts", writeDetails);
-            //window.location.replace(`/post/${res.data._id}`)
+            window.location.replace(`/post/${res.data._id}`)
         } catch(err) {  
             console.log("Failed to create new post ", err)
         }
     }
-
-    console.log(writeDetails)
 
     return (
         <div className='write'>
@@ -71,7 +72,7 @@ export default function Write() {
                     type="file" 
                     id="file-input"
                     name='image'
-                    onChange={handleWriteChange} 
+                    onChange={onFileChange}
                     style={{display: "none"}} 
                 />
                 <input
