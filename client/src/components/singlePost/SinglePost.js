@@ -46,6 +46,21 @@ export default function SinglePost() {
         }
     }
 
+    async function handlePostUpdate() {
+        try {
+            await axios.put(`/posts/${singlePost._id}`, {
+                username: singlePost.username, 
+                title: editPost.title, 
+                description: editPost.description
+            });
+            //window.location.reload();
+            setUpdateMode(false)
+
+        } catch(err) {
+
+        }
+    }
+
     function onUpdatePostChange(e) {
         setEditPost(prevPost => (
             {
@@ -71,7 +86,7 @@ export default function SinglePost() {
                 <input 
                     type="text"
                     name="title"
-                    value={singlePost.title} 
+                    value={editPost.title} 
                     onChange={onUpdatePostChange}
                     className="single-post-title-input" 
                     autoFocus
@@ -111,8 +126,12 @@ export default function SinglePost() {
                     onChange={onUpdatePostChange}
                 /> :
                 <p className='single-post-description'>
-                    {singlePost.description}
+                    {editPost.description}
                 </p>
+            }
+            {
+                updateMode &&
+                <button className='single-post-button' onClick={handlePostUpdate}>Update</button>
             }
         </div>
     </div>

@@ -87,3 +87,15 @@
 .single-post-description-input:focus {
     outline: none;
 }
+
+.single-post-button {
+    width: 100px;
+    border: none;
+    background-color: teal;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-top: 20px;
+}
