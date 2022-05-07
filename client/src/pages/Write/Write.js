@@ -12,6 +12,7 @@ export default function Write() {
         title: "",
         description: "",
         username: userDetails.username,
+        image: null,
         categories: []
     })
     const [file, setFile] = React.useState(null)
@@ -20,24 +21,20 @@ export default function Write() {
         setWriteDetails(prevDetails => (
             {
                 ...prevDetails,
-                [e.target.name]: e.target.value
+                [e.target.name]: e.target.type === "file" ? Date.now() + e.target.value.name : e.target.value
             }
         ))
     }
 
     async function onWriteSubmit(e) {
         e.preventDefault();
-        if(file) {
+        if(writeDetails.image) {
             const data = new FormData();
-            const filename = Date.now() + file.name;
+            //const filename = Date.now() + file.name;
+            console.log(filename);
             data.append("name",filename)
             data.append("file",file)
-            setWriteDetails(prevDetails => (
-                {
-                    ...prevDetails,
-                    image: file
-                }
-            ));
+            console.log(writeDetails)
             try {
                 await axios.post("/upload", data);
             } catch(err) {
@@ -45,15 +42,18 @@ export default function Write() {
             }
         }
         try {
+            console.log("Write post: ", writeDetails);
             const res = await axios.post("/posts", writeDetails);
-            window.location.replace(`/post/${res.data._id}`)
+            //window.location.replace(`/post/${res.data._id}`)
         } catch(err) {  
             console.log("Failed to create new post ", err)
         }
     }
 
-  return (
-    <div className='write'>
+    console.log(writeDetails)
+
+    return (
+        <div className='write'>
         {
             file &&
             <img 
@@ -70,7 +70,8 @@ export default function Write() {
                 <input 
                     type="file" 
                     id="file-input"
-                    onChange={(e) => setFile(e.target.files[0])} 
+                    name='image'
+                    onChange={handleWriteChange} 
                     style={{display: "none"}} 
                 />
                 <input

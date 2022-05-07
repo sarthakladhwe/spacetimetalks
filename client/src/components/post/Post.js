@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 export default function post({ post }) {
 
   const timeStamp = new Date(post.createdAt).toDateString();
+  const publicFolder = "localhost:5000/images/"
   const postCategories = post.categories.map(cat => (
     <span className='post-category'>
         <Link className='link' to={`/?cat=${cat}`}>
@@ -17,7 +18,7 @@ export default function post({ post }) {
     <div className='post'>
         <img 
             className='post-image'
-            src='https://images.pexels.com/photos/1257860/pexels-photo-1257860.jpeg?cs=srgb&dl=pexels-philippe-donn-1257860.jpg&fm=jpg'
+            src={publicFolder + post.image}
             alt=''
         />
         <div className='post-info'>
