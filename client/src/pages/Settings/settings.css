@@ -45,6 +45,14 @@
     object-fit: cover;
 }
 
+.profile-icon {
+    font-size: 170px;
+    border-radius: 20px;
+    border-radius: 20px;
+    background-color: #fff;
+    color: teal;
+}
+
 .settings-profile-icon {
     width: 30px;
     height: 30px;

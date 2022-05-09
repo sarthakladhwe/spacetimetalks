@@ -1,11 +1,54 @@
 import React from 'react'
 import './settings.css'
+import axios from 'axios'
+
 import Sidebar from '../../components/sidebar/Sidebar'
 import { Context } from '../../context/Context'
 
 export default function Settings() {
 
   const {userDetails, logoutUser, isLoggedIn} = React.useContext(Context);
+  const [updateUser, setUpdateUser] = React.useState({
+      userId: userDetails._id,
+      username: "",
+      email: "",
+      password: "",
+      profilePicture: null
+  })
+  const [file, setFile] = React.useState(null)
+
+  async function onUserSubmit(e) {
+    e.preventDefault();
+    if(file) {
+        const data = new FormData();
+        data.append("name",updateUser.profilePicture)
+        data.append("file",file) 
+        try {
+            await axios.put("/upload", data);
+        } catch(err) {
+            console.log("File upload failed: ",err);
+        }   
+    }
+    try {
+        await axios.put(`/users/${userDetails._id}`, updateUser);
+    } catch(err) {  
+        console.log("Failed to create new post ", err)
+    }
+  }
+
+  function handleUserChange(e) {
+    setUpdateUser(prevDetails => ({
+        ...prevDetails,
+        [e.target.name]: e.target.name === "profilePicture" ?
+                            Date.now() + e.target.files[0].name :
+                            e.target.value
+    }))
+  }
+
+  function onFileChange(e) {
+    setFile(e.target.files[0]);
+    handleUserChange(e);
+  }
 
   return (
     <div className='settings'>
@@ -18,25 +61,49 @@ export default function Settings() {
                     Delete Account
                 </span>
             </div>
-            <form className='settings-form'>
+            <form className='settings-form' onSubmit={onUserSubmit}>
                 <label>Profile Picture</label>
                 <div className='settings-profile-picture'>
-                    <img
-                        src='https://media-exp1.licdn.com/dms/image/C4D03AQEk3saQzwZMEw/profile-displayphoto-shrink_800_800/0/1583911954522?e=1656547200&v=beta&t=eumbJSoMV76Bx3RFd5EC7PBCuHJQGGjp7zM1zzJqv3U'
-                        alt=''
-                    />
+                    {
+                        userDetails.profilePicture ?
+                        <img
+                            src={userDetails.profilePicture}
+                            alt=''
+                        /> :
+                        <i className="profile-icon fa-solid fa-user-astronaut"></i>
+                    }
                     <label htmlFor='file-input'>
                         <i className="settings-profile-icon fa-regular fa-circle-user"></i>
                     </label>
-                    <input type="file" id="file-input" style={{display: "none"}} />
+                    <input 
+                        type="file" 
+                        id="file-input" 
+                        name="profilePicture"
+                        onChange={onFileChange}
+                        style={{display: "none"}} 
+                    />
                 </div>
                 <label>Username</label>
-                <input type="text" placeholder="Sarthak" />
+                <input 
+                    type="text" 
+                    placeholder={userDetails.username}
+                    name="username"
+                    onChange={handleUserChange}
+                />
                 <label>Email</label>
-                <input type="email" placeholder="sarthak.ladhwe156@gmail.com" />
+                <input 
+                    type="email" 
+                    placeholder={userDetails.email}
+                    name="email"
+                    onChange={handleUserChange}
+                />
                 <label>Password</label>
-                <input type="password" />
-                <button className='settings-submit'>Update</button>
+                <input 
+                    type="password" 
+                    name="password"
+                    onChange={handleUserChange}
+                />
+                <button className='settings-submit' type='submit'>Update</button>
             </form>
         </div>
         <Sidebar />

@@ -3,7 +3,7 @@ import './write.css'
 import { Context } from '../../context/Context'
 
 import axios from 'axios';
-
+    
 export default function Write() {
 
     const {userDetails} = React.useContext(Context);
