@@ -22,6 +22,11 @@ function ContextProvider({ children }) {
         }
     },[])
 
+    function userUpdated(data) {
+        setUserDetails(data)
+        localStorage.setItem("user", JSON.stringify(data))
+    }
+
     // React.useEffect(() => {
     //     const alreadyUser = localStorage.getItem("user") || null;
     //     if(alreadyUser) {
@@ -61,7 +66,7 @@ function ContextProvider({ children }) {
     console.log("User details context: ",userDetails);
 
     return (
-        <Context.Provider value={{userDetails, loginWithDetails, logoutUser, isLoggedIn, error}}>
+        <Context.Provider value={{userDetails, loginWithDetails, logoutUser, userUpdated, isLoggedIn, error}}>
             {children}
         </Context.Provider>
     )

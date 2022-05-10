@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom'
 export default function Topbar() {
 
   const {userDetails, logoutUser, isLoggedIn} = React.useContext(Context);
-    
+  const publicFolder = "http://localhost:5000/images/";
+
   return (
     <div className='topbar'>
         <div className='top-left'>
@@ -42,7 +43,7 @@ export default function Topbar() {
                         {
                             userDetails.profilePicture ?
                             <img 
-                                src={userDetails.profilePicture} 
+                                src={publicFolder + userDetails.profilePicture} 
                                 className='profile-image' 
                                 alt='' 
                             /> :
