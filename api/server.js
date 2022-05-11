@@ -10,6 +10,8 @@ const usersRoute = require("./routes/users");
 const postsRoute = require("./routes/posts");
 const categoriesRoute = require("./routes/categories")
 
+const PORT = process.env.PORT || 5000;
+
 dotenv.config();
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")))
@@ -36,6 +38,6 @@ app.use("/api/users", usersRoute);
 app.use("/api/posts", postsRoute);
 app.use("/api/categories", categoriesRoute);
 
-app.listen("5000", () => {
-    console.log("Backend is running..");
+app.listen(PORT, () => {
+    console.log(`Backend is running at ${PORT}..`);
 })
