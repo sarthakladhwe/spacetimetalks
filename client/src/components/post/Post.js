@@ -1,5 +1,6 @@
 import React from 'react'
 import './post.css'
+import postDefaultImage from '../../assets/STTChannelArt.jpg'
 import { Link } from 'react-router-dom'
 
 export default function post({ post }) {
@@ -18,7 +19,7 @@ export default function post({ post }) {
     <div className='post'>
         <img 
             className='post-image'
-            src={publicFolder + post.image}
+            src={post.image ? publicFolder + post.image : postDefaultImage}
             alt=''
         />
         <div className='post-info'>
