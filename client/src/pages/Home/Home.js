@@ -1,9 +1,9 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState, React} from 'react'
 import axios from 'axios'
 import { useLocation } from 'react-router'
 import { nanoid } from 'nanoid'
 
-import './home.css'
+import './home.css' 
 import Header from '../../components/header/Header'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Posts from '../../components/posts/Posts'
