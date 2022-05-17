@@ -26,11 +26,10 @@ export default function Sidebar() {
   return (
     <div className='sidebar'>
         <div className='sidebar-item'>
-            <span className='sidebar-title'>ABOUT ME</span>
+            <span className='sidebar-title'>ABOUT US</span>
             {/* <img src='https://www.pexels.com/photo/blue-and-white-planet-display-87009/' alt='' /> */}
             <p>
-                Lorem sasfasfafssss
-                asfasfasf
+                Space Time Talks
             </p>
         </div>
         <div className='sidebar-item'>
@@ -42,9 +41,15 @@ export default function Sidebar() {
         <div className='sidebar-item'>
             <span className='sidebar-title'>FOLLOW US</span>
             <div className='sidebr-social'>
-                <i className="sidebar-icon fa-brands fa-instagram"></i>
-                <i className="sidebar-icon fa-brands fa-youtube"></i>
-                <i className="sidebar-icon fa-brands fa-twitter"></i>
+                <a href='https://www.instagram.com/spacetimetalks/' target="_blank">
+                    <i className="top-icon fa-brands fa-instagram"></i>
+                </a>
+                <a href='https://www.youtube.com/channel/UCzfAjmg89wlMtIz-LJZW4qA' target="_blank">
+                    <i className="top-icon fa-brands fa-youtube"></i>
+                </a>
+                <a href='https://twitter.com/spacetime_talks' target="_blank">
+                    <i className="top-icon fa-brands fa-twitter"></i>
+                </a>
             </div>
         </div>
     </div>

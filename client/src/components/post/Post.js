@@ -3,7 +3,7 @@ import './post.css'
 import postDefaultImage from '../../assets/STTChannelArt.jpg'
 import { Link } from 'react-router-dom'
 
-export default function post({ post }) {
+export default function Post({ post }) {
 
   const timeStamp = new Date(post.createdAt).toDateString();
   const publicFolder = "http://localhost:5000/images/"

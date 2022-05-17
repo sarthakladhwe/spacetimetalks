@@ -1,8 +1,9 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios'
 import { useLocation } from 'react-router'
-import './home.css'
+import { nanoid } from 'nanoid'
 
+import './home.css'
 import Header from '../../components/header/Header'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Posts from '../../components/posts/Posts'
@@ -24,8 +25,8 @@ export default function Home() {
     <div className='home'>
         <Header />
         <div className='home-container'>
-          <Posts posts={posts} />
-          <Sidebar />
+          <Posts key={nanoid()} posts={posts} />
+          <Sidebar key={nanoid()} />
         </div>
     </div>
   )

@@ -12,9 +12,15 @@ export default function Topbar() {
   return (
     <div className='topbar'>
         <div className='top-left'>
-            <i className="top-icon fa-brands fa-instagram"></i>
-            <i className="top-icon fa-brands fa-youtube"></i>
-            <i className="top-icon fa-brands fa-twitter"></i>
+            <a href='https://www.instagram.com/spacetimetalks/' target="_blank">
+                <i className="top-icon fa-brands fa-instagram"></i>
+            </a>
+            <a href='https://www.youtube.com/channel/UCzfAjmg89wlMtIz-LJZW4qA' target="_blank">
+                <i className="top-icon fa-brands fa-youtube"></i>
+            </a>
+            <a href='https://twitter.com/spacetime_talks' target="_blank">
+                <i className="top-icon fa-brands fa-twitter"></i>
+            </a>
         </div>
         <div className='top-center'>
             <ul className='menu-list'>
