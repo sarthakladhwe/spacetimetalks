@@ -7,16 +7,15 @@ import { Context } from '../../context/Context'
 
 export default function Settings() {
 
-  const {userDetails, userUpdated, logoutUser, isLoggedIn} = React.useContext(Context);
+  const {userDetails, logoutUser, isLoggedIn} = React.useContext(Context);
   const [updateUser, setUpdateUser] = React.useState({
       userId: userDetails._id,
       username: "",
       email: "",
-      password: ""
+      password: "",
+      profilePicture: null
   })
   const [file, setFile] = React.useState(null)
-  const [success, setSuccess] = React.useState(false)
-  const publicFolder = "http://localhost:5000/images/";
 
   async function onUserSubmit(e) {
     e.preventDefault();
@@ -25,16 +24,13 @@ export default function Settings() {
         data.append("name",updateUser.profilePicture)
         data.append("file",file) 
         try {
-            await axios.post("/upload", data);
+            await axios.put("/upload", data);
         } catch(err) {
             console.log("File upload failed: ",err);
-        }
+        }   
     }
     try {
-        const res = await axios.put(`/users/${userDetails._id}`, updateUser);
-        console.log(res.data)
-        setSuccess(true);
-        userUpdated(res.data);
+        await axios.put(`/users/${userDetails._id}`, updateUser);
     } catch(err) {  
         console.log("Failed to create new post ", err)
     }
@@ -43,17 +39,15 @@ export default function Settings() {
   function handleUserChange(e) {
     setUpdateUser(prevDetails => ({
         ...prevDetails,
-        [e.target.name]: e.target.value
+        [e.target.name]: e.target.name === "profilePicture" ?
+                            Date.now() + e.target.files[0].name :
+                            e.target.value
     }))
   }
 
   function onFileChange(e) {
     setFile(e.target.files[0]);
-    //handleUserChange(e);
-    setUpdateUser(prevDetails => ({
-        ...prevDetails,
-        profilePicture: Date.now() + e.target.files[0].name
-    }))
+    handleUserChange(e);
   }
 
   return (
@@ -71,14 +65,9 @@ export default function Settings() {
                 <label>Profile Picture</label>
                 <div className='settings-profile-picture'>
                     {
-                        file ?
-                        <img
-                            src={URL.createObjectURL(file)}
-                            alt=''
-                        /> :
                         userDetails.profilePicture ?
                         <img
-                            src={publicFolder + userDetails.profilePicture}
+                            src={userDetails.profilePicture}
                             alt=''
                         /> :
                         <i className="profile-icon fa-solid fa-user-astronaut"></i>
@@ -115,10 +104,6 @@ export default function Settings() {
                     onChange={handleUserChange}
                 />
                 <button className='settings-submit' type='submit'>Update</button>
-                {
-                    success &&
-                    <span style={{color: "green", textAlign: "center", marginTop: "20px"}}>Profile has been updated!</span>
-                }
             </form>
         </div>
         <Sidebar />
