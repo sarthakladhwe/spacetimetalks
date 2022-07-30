@@ -19,16 +19,16 @@
 
 .header-title-small {
     position: absolute;
-    top: 5%;
-    font-size: 50px;
+    margin-top: 1em;
+    font-size: 3rem;
     padding: 5px;
     border: 2px solid #fff;
 }
 
 .header-title-large {
     position: absolute;
-    top: 16%;
-    font-size: 100px;
+    margin-top: 1.5em;
+    font-size: 6rem;
 }
 
 .hero-image {

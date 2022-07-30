@@ -1,6 +1,8 @@
 .register-container {
     background-color: #212329;
     height: calc(100vh - 52px);
+    width: 100%;
+    overflow: hidden;
     display: flex;
     justify-content: center;        
     align-items: center;
@@ -12,6 +14,7 @@
     align-items: center;
     justify-content: center;
     background-color: #4A5667;
+    margin: 0;
     padding: 20px 40px;     
     border-radius: 10px;
 }
