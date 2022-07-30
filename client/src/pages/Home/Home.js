@@ -8,10 +8,14 @@ import Header from '../../components/header/Header'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Posts from '../../components/posts/Posts'
 
+import useWindowDimensions from '../../hooks/useWindowDimensions'
+
 export default function Home() {
   //revert commit change
   const [posts, setPosts] = useState([])
   const {search} = useLocation();
+
+  const { height, width } = useWindowDimensions();
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -26,7 +30,9 @@ export default function Home() {
         <Header />
         <div className='home-container'>
           <Posts key={nanoid()} posts={posts} />
-          <Sidebar key={nanoid()} />
+          {
+            width > 675 && <Sidebar key={nanoid()} />
+          }
         </div>
     </div>
   )

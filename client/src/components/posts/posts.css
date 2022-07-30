@@ -1,6 +1,6 @@
 .posts {
     flex: 9;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(385px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
     gap: 10px;
 }

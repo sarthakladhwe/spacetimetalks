@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Topbar /> */}
+      <Topbar />
       <Routes>
         <Route path="/" element={<Home />}/> 
         <Route path="/write" element={isLoggedIn ? <Write /> : <Register />} />
