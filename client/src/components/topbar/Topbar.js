@@ -66,7 +66,7 @@ export default function Topbar() {
                     </ul> 
                 )
             }
-            <i className="top-search fa-solid fa-magnifying-glass"></i>
+            {/* <i className="top-search fa-solid fa-magnifying-glass"></i> */}
         </div>
     </div>
   )

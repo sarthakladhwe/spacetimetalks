@@ -76,7 +76,43 @@
     color: aqua;
 }
 
+@media (max-width: 600px) {
+    .topbar {
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+        overflow: hidden;
+    }
 
+    .top-center {
+        order: 0;
+        display: flex;
+        justify-content: center;
+    }
 
+    .menu-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        row-gap: 1.5em;
+    }
 
+    .menu-list-item {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
 
+    .top-right {
+        order: 1;
+    }
+
+    .top-left {
+        order: 2;
+    }
+
+    .top-icon {
+        font-size: 1.5rem;
+    }
+}
