@@ -76,7 +76,7 @@
     color: aqua;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 10px) {
     .topbar {
         flex-direction: column;
         height: 100vh;

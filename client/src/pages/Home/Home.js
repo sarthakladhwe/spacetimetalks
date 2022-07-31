@@ -15,7 +15,7 @@ export default function Home() {
   const [posts, setPosts] = useState([])
   const {search} = useLocation();
 
-  const { height, width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
 
   useEffect(() => {
     const fetchPosts = async () => {

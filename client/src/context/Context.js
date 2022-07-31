@@ -20,14 +20,7 @@ function ContextProvider({ children }) {
                 setIsLoggedIn(true);
             }
         }
-    },[])
-
-    // React.useEffect(() => {
-    //     const alreadyUser = localStorage.getItem("user") || null;
-    //     if(alreadyUser) {
-    //         setUserDetails(alreadyUser)
-    //     }
-    // },[])
+    },[userDetails])
 
     function logoutUser() {
         localStorage.removeItem("user");

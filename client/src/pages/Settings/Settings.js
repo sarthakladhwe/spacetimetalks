@@ -7,7 +7,7 @@ import { Context } from '../../context/Context'
 
 export default function Settings() {
 
-  const {userDetails, logoutUser, isLoggedIn} = React.useContext(Context);
+  const {userDetails} = React.useContext(Context);
   const [updateUser, setUpdateUser] = React.useState({
       userId: userDetails._id,
       username: "",
@@ -21,8 +21,8 @@ export default function Settings() {
     e.preventDefault();
     if(file) {
         const data = new FormData();
-        data.append("name",updateUser.profilePicture)
-        data.append("file",file) 
+        data.append("name", updateUser.profilePicture)
+        data.append("file", file) 
         try {
             await axios.put("/upload", data);
         } catch(err) {

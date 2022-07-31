@@ -41,13 +41,13 @@ export default function Sidebar() {
         <div className='sidebar-item'>
             <span className='sidebar-title'>FOLLOW US</span>
             <div className='sidebr-social'>
-                <a href='https://www.instagram.com/spacetimetalks/' target="_blank">
+                <a href='https://www.instagram.com/spacetimetalks/' target="_blank" rel="noreferrer">
                     <i className="top-icon fa-brands fa-instagram"></i>
                 </a>
-                <a href='https://www.youtube.com/channel/UCzfAjmg89wlMtIz-LJZW4qA' target="_blank">
+                <a href='https://www.youtube.com/channel/UCzfAjmg89wlMtIz-LJZW4qA' target="_blank" rel="noreferrer">
                     <i className="top-icon fa-brands fa-youtube"></i>
                 </a>
-                <a href='https://twitter.com/spacetime_talks' target="_blank">
+                <a href='https://twitter.com/spacetime_talks' target="_blank" rel="noreferrer">
                     <i className="top-icon fa-brands fa-twitter"></i>
                 </a>
             </div>

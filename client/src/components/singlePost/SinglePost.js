@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import axios from 'axios';
+import axios from 'axios'
 import './singlePost.css'
-import post from '../post/Post';
 import { Context } from '../../context/Context'
 
 export default function SinglePost() {
