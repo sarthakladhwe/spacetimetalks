@@ -38,6 +38,12 @@ app.use("/api/users", usersRoute);
 app.use("/api/posts", postsRoute);
 app.use("/api/categories", categoriesRoute);
 
+app.use(express.static(path.join(__dirname, "/client")));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
+});
+
 app.listen(PORT, () => {
     console.log(`Backend is running at ${PORT}`);
 })
