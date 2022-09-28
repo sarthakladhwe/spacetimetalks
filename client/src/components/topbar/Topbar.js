@@ -3,17 +3,17 @@ import './topbar.css'
 import { Context } from '../../context/Context';
 
 import { Link } from 'react-router-dom'
-import { useWindowDimensions } from "../../hooks/useWindowDimensions"
+//import { useWindowDimensions } from "../../hooks/useWindowDimensions"
 
 export default function Topbar() {
 
   const {userDetails, logoutUser, isLoggedIn} = React.useContext(Context);
 
-  const {width} = useWindowDimensions()
+  //const {width} = useWindowDimensions()
 
-  if(width > 675) {
+//   if(width > 675) {
     
-  }
+//   }
     
   return (
     <div className='topbar'>
